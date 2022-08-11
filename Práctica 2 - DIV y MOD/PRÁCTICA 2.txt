@@ -1,0 +1,395 @@
+{program practica1ej1a;
+
+var numero,cifra:integer;
+
+Begin
+    Write('Ingrese el numero a procesar; ');
+    Readln(numero);
+    While (numero<>0)do
+    Begin
+        cifra:=numero mod 10;
+        if cifra mod 3 = 0 then
+        Begin
+            Write(cifra);
+        end;
+        numero:=numero div 10;
+    end;
+end.
+
+program prac1ej1b;
+
+var numero,cifra,cifraMax:integer;
+
+Begin
+    cifraMax:=-1;
+    Write('Ingrese el numero a procesar; ');
+    Readln(numero);
+    While (numero<>0)do
+    Begin
+        cifra:=numero mod 10;
+        if cifra > cifraMax then
+            cifraMax:=cifra;
+        if cifra mod 3 = 0 then
+        Begin
+            Write(cifra);
+        end;
+        numero:=numero div 10;
+    end;
+    Write('Su cifra mas grande es: ',cifraMax);
+end.
+
+program prac1ej1e;
+
+var numero,procesado,cifra:integer;
+
+Begin
+    procesado:=0;
+    while procesado <=5 do
+    Begin
+        Writeln('Ingrese el numero a procesar: ');
+        Readln(numero);
+        while numero<>0 do
+        Begin
+            cifra:=numero mod 10;
+            if cifra mod 3 = 0 then
+            begin
+                Writeln(cifra);
+            end;
+            procesado := procesado +1;
+            numero := numero div 10;
+        end;
+    end;
+end.
+
+program prac2ej2;
+
+var numero,cifra,cifraMayor,cifraMayor2,unidades:integer;
+begin
+    unidades:=0;
+    Readln(numero);
+    while numero<>9999 do
+    begin
+        cifraMayor:=-0;cifraMayor2:=0;
+        while numero <> 0 do
+        begin
+            unidades := unidades + numero mod 10;
+            cifra := numero mod 10;
+            if cifra > cifraMayor then
+            begin
+                cifraMayor2 := cifraMayor;
+                cifraMayor := cifra
+            end
+            else if cifra > cifraMayor2 then
+            begin
+                cifraMayor2 := cifra;
+            end;      
+            numero := numero div 10;      
+        end;
+        Writeln ('La cifra mayor es: ',cifraMayor, ', y la segunda cifra mayor es: ',cifraMayor2);
+        Writeln('Ingrese el siguiente numero a procesar: ');
+        Read(numero)
+    end;  
+    Writeln('La suma de las unidades de todos los numeros es: ', unidades);
+end.
+
+program practica1ej3A;
+
+var numero,unidades,i:integer;
+
+begin
+    for i := 1 to 10 do
+    begin
+        Readln(numero);
+        repeat
+            unidades := 0;
+            while numero <> 0 do
+            begin
+            unidades := unidades + numero mod 10;
+            numero := numero div 10;
+            end;
+            numero := unidades;
+        until (unidades < 10);
+        case := unidades of
+        Writeln ('La suma total de las unidades del numero es: ', unidades);
+
+    end;
+end.
+
+program practica1ej3B;
+
+var numero,unidades,i:integer; resultado:string;
+
+begin
+    for i := 1 to 10 do
+    begin
+        Readln(numero);
+        repeat
+            unidades := 0;
+            while numero <> 0 do
+            begin
+            unidades := unidades + numero mod 10;
+            numero := numero div 10;
+            end;
+            numero := unidades;
+        until (unidades < 10);
+        case unidades of
+            0: resultado:='cero';
+            1: resultado:='uno';
+            2: resultado:='dos';
+            3: resultado:='tres';
+            4: resultado:='cuatro';
+            5: resultado:='cinco';
+            6: resultado:='seis';
+            7: resultado:='siete';
+            8: resultado:='ocho';
+            9: resultado:='nueve';
+        end;
+        Writeln ('La suma total de las unidades del numero es: ', resultado);
+    end;
+end.
+
+program prac1ej4;
+
+var numero,numero2,cifras,mult,digito,invertido,i:integer;
+
+begin
+    cifras:=0;mult:=1;invertido:=0;
+    Readln(numero);
+    numero2:=numero;
+    while numero <> 0 do
+    begin
+        numero := numero div 10;
+        cifras := cifras + 1;
+    end;
+    for i := 1 to cifras do
+    begin
+        mult := mult*10;
+    end;
+    while numero2 <> 0 do
+    begin
+        digito := numero2 mod 10;
+        invertido := invertido + digito*mult;
+        mult := mult div 10;
+        numero2 := numero2 div 10;
+    end;
+    Write('El numero invertido es: ',invertido);
+end.
+
+program prac1ej5;
+
+var caracter,caracterAnterior:char; cantCar,a,aWithS:integer;
+
+begin
+    cantCar:=0;a:=0;aWithS:=0;caracterAnterior:=' ';
+    Readln(caracter);
+    while(caracter <> '.') do
+    begin
+        cantCar := cantCar + 1;
+        if caracter = 'A' then
+        begin
+            a := a + 1;
+        end
+        else if (caracter = 'a') and (caracterAnterior = 's') then
+        begin
+            aWithS := aWithS + 1;
+        end;
+        caracterAnterior := caracter;
+        Readln(caracter);
+    end;
+    Writeln('La cantidad de caracteres leidos es de: ',cantCar);
+    Writeln('La cantidad de letras A leidas es de : ', a);
+    Writeln('La cantidad de letras s seguidas de a es de : ', aWithS);
+end.
+
+program practica2ej6;
+
+var aWiths:
+
+begin
+
+end;
+
+program practica2ej7;
+
+var cantLetras,palabraConT,cantPalabras:integer; caracter:char;
+
+begin
+    cantLetras:=0;palabraConT:=0;cantPalabras:=0;
+    Readln(caracter);
+    while (caracter <> '.') do
+    begin
+        if caracter = 't' then
+        begin
+            while (caracter <> '.') and (caracter <> ' ') do
+            begin
+                cantLetras := cantLetras + 1;
+                Readln(caracter);
+            end;
+            cantPalabras := cantPalabras + 1;
+            if cantLetras > palabraConT then
+            Begin
+                palabraConT := cantLetras;
+            end;
+            cantLetras := 0;
+        end
+        else 
+        begin
+            while (caracter <> '.') and (caracter <> ' ') do
+            begin
+                Readln(caracter);
+            end;
+            cantPalabras := cantPalabras + 1;
+        end;
+        if caracter <> '.' then
+        Readln(caracter);
+    end;
+    Writeln('La cantidad de palabras ingresadas fue de : ',cantPalabras);
+    Writeln('La longitud de la palabra mas larga que comienza con t fue de : ',palabraConT);
+end.
+
+program prac2ej8;
+
+var car,prevCar:char; palabraConR,palabraConRyN,palabraConT,cantCar,cantPalabras,palabraX,cantP,carPalabra:integer;
+
+begin
+    cantPalabras:=0;cantCar:=0;palabraX:=0;palabraConR:=0;palabraConRyN:=0;palabraConT:=0;
+    car := ' ';
+    while (car <> 'z') and (cantCar < 500) do
+    begin
+        Write('Ingrese un caracter: ');Readln(car);
+        cantCar := cantCar + 1;carPalabra:=0;cantP:=0;
+        if (car = 'R') then
+        begin
+            while(car <> 'z') and (car <> ' ') and (cantCar < 500) do
+            begin
+                carPalabra := carPalabra + 1;
+                prevCar := car;
+                if (car = 'p') then
+                    cantP := cantP + 1;
+                Write('Ingrese otro caracter: ');
+                Readln(car);
+                cantCar := cantCar + 1;
+            end;
+            palabraConR := palabraConR + 1;
+            if (prevCar = 'N') then
+                palabraConRyN := palabraConRyN + 1
+            else if (prevCar = 'T') then
+                palabraConT := palabraConT + 1;
+        end
+        else 
+        begin 
+            while(car <> 'z') and (car <> ' ') and (cantCar < 500) do
+            begin
+                carPalabra := carPalabra + 1;
+                prevCar := car;
+                if (car = 'p') then
+                    cantP := cantP + 1;
+                Write('Ingrese otro caracter: ');
+                Readln(car);
+                cantCar := cantCar + 1;
+            end;
+            if(prevCar = 'T') then
+                palabraConT := palabraConT + 1;
+        end;
+        cantPalabras := cantPalabras + 1;
+        while (car = ' ') do
+        begin
+            Write('Ingrese otro caracter: ');
+            cantCar := cantCar + 1;Readln(car);
+        end;
+        if (carPalabra < 6) and (cantP = 2) then
+            palabraX := palabraX + 1;
+    end;
+    Writeln('La cantidad de palabras que comienzan con R es de : ', palabraConR);
+    Writeln('La cantidad de palabras que terminan con T es de : ', palabraConT);
+    Writeln('La cantidad de palabras que comienzan con R y terminan con N es de : ', palabraConRyN);
+    Writeln('La cantidad de palabras con menos de 6 caracteres y exactamente dos "p" es de: ', palabraX);
+end.
+
+program practica2ej9;
+
+var car,prevCar:char; carPalabra,palabraX,a:integer;
+
+begin
+    car:='x';palabraX:=0;
+    while (car <> '*') and (car <> '.') do
+    begin
+        a:=0;carPalabra:=0;
+        Write('Ingrese un caracter: '); Readln(car);
+        while (car = ' ') do
+            Readln(car);
+        if (car = 's') then
+        begin
+            while (car <> '*') and (car <> '.') do
+            begin
+                carPalabra := carPalabra + 1;
+                prevCar := car;
+                Write('Ingrese un caracter: '); Readln(car);
+                if (car = 'a') then
+                    a := a + 1;            
+            end;
+            if (prevCar = 's') then
+            begin
+                if (a = 2) then
+                begin
+                    if (carPalabra >= 5) then
+                        palabraX := palabraX + 1;
+                end;
+            end;
+        end
+        else 
+        begin
+            while (car <> '*') and (car <> '.') do
+            begin
+                Write('Ingrese un caracter: '); Readln(car);
+            end;
+        end;
+    end;
+    Write ('La cantidad de especiales es de: ', palabraX);
+end.
+
+program practica2ej10;
+
+var car,prevCar,prevCar2:char; wordCar,withPA,withSA,word6:integer;
+
+begin
+    word6:=0;withPA:=0;withSA:=0;
+    Write('Ingrese un caracter : ');Readln(car);
+    while (car <> '#') do
+    begin
+        wordCar:=0;prevCar:=' ';
+        while(car = ' ') do
+        begin
+            Write('Ingrese un caracter : '); Readln(car);
+        end;
+        if car = 'P' then
+        begin
+            Write('Ingrese un caracter : '); Readln(car);
+            wordCar := wordCar + 1;
+            if car = 'A' then
+                withPA := withPA + 1;
+            while (car <> '#') and (car <> ' ') do
+            begin
+                wordCar := wordCar + 1;
+                prevCar2 := prevCar; prevCar := car;
+                Write('Ingrese un caracter : '); Readln(car);
+            end;
+        end
+        else
+        begin
+            while (car <> '#') and (car <> ' ') do
+            begin
+                wordCar := wordCar + 1;
+                prevCar2 := prevCar; prevCar := car;
+                Write('Ingrese un caracter : '); Readln(car);   
+            end;
+        end;
+        if (prevCar2 = 'S') and (prevCar = 'A') then
+          withSa := withSa + 1;
+        if (wordCar = 6) then
+          word6 := word6 + 1;
+    end;
+    Writeln('Las palabras de longitud 6 son: ', word6);
+    Writeln('Las palabras que comienzan con PA son : ', withPA);
+    Writeln('Las palabras que terminan con SA son : ', withSA);
+end.}
